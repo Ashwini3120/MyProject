@@ -56,8 +56,7 @@ public class LoginPage extends UtilClass{
 			Assert.assertEquals(txt, "Invalid credentials");
 			 //Assert.assertTrue(invalid.isDisplayed(),"Log in not successfull");
 			  System.out.println("Login not Successfull");
-			  System.out.println(" Successfull");
-		  }
+			  }
 		
 		else if(scenario.equals("wrongpass")) {
 			explicitWait(driver,invalid);
