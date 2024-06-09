@@ -20,6 +20,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class UtilClass {
 	WebDriver driver;
+	
 	public static WebElement explicitWait(WebDriver driver,WebElement element) {
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
 		WebElement waitElement= wait.until(ExpectedConditions.visibilityOf(element));
@@ -27,7 +28,30 @@ public class UtilClass {
 	}
 	
 	
-	public static void getDataFromExcel() throws IOException {
+//	public static void getDataFromExcel(String user,String paswrd) throws IOException {
+//		
+//		FileInputStream fis = new FileInputStream("C:\\Users\\admin\\eclipse-workspace\\selenium\\LoginCredentials.xlsx");
+//		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+//		XSSFSheet sheet= workbook.getSheetAt(0);
+//		XSSFRow cell ;
+//		
+//			for (int i = 1; i <=sheet.getLastRowNum() ; i++) {
+//						
+//				// import the data from the cell to load username
+//			cell = sheet.getRow(i);
+//					 
+//			   user=cell.getCell(0).getStringCellValue();
+//				System.out.println(user);
+//								// import the data from the cell to load username
+//			
+//				 // import the data from the cell to load password
+//					 paswrd=cell.getCell(1).getStringCellValue();
+//					System.out.println(paswrd);
+//						}
+//					
+//				}
+	
+public static String getUserDataFromExcel(String user) throws IOException {
 		
 		FileInputStream fis = new FileInputStream("C:\\Users\\admin\\eclipse-workspace\\selenium\\LoginCredentials.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
@@ -39,15 +63,25 @@ public class UtilClass {
 				// import the data from the cell to load username
 			cell = sheet.getRow(i);
 					 
-			  String user=cell.getCell(0).getStringCellValue();
+			   user=cell.getCell(0).getStringCellValue();
 				System.out.println(user);
-								// import the data from the cell to load username
-			
+				
+			}return user;
+			}
+
+public static String getPasswordFromExcel(String paswrd) throws IOException {		
+		FileInputStream file = new FileInputStream("C:\\Users\\admin\\eclipse-workspace\\selenium\\LoginCredentials.xlsx");
+		XSSFWorkbook workbook1 = new XSSFWorkbook(file);
+		XSSFSheet sheet= workbook1.getSheetAt(0);
+		XSSFRow cell1 ;
+		for (int i = 1; i <=sheet.getLastRowNum() ; i++) {
 				 // import the data from the cell to load password
-					String paswrd=cell.getCell(1).getStringCellValue();
+			cell1 = sheet.getRow(i);
+					 paswrd=cell1.getCell(1).getStringCellValue();
 					System.out.println(paswrd);
-						}
 					
+						}
+					return paswrd;
 				}
 	public static String getScreenshot(WebDriver driver,String testname) throws IOException
 	{

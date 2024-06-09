@@ -5,10 +5,12 @@
     <classes>
       <class name="test.TestClassTest">
         <methods>
-          <include name="verifyUserCanLogin" invocation-numbers="0"/>
+          <include name="verifyUserCanLogin"/>
           <include name="afterMethod"/>
+          <include name="sub"/>
           <include name="beforeMethod"/>
           <include name="beforeClass"/>
+          <include name="verifyUserpas"/>
           <include name="afterClass"/>
         </methods>
       </class> <!-- test.TestClassTest -->

@@ -50,30 +50,44 @@ public class TestClassTest {
 	 
 	 }
 	 
-	 @DataProvider(name="dataset")
-	  public String[][] data() {
-		 String[][] data= {{"bothwrong","adm","admin"},{"wrongpass","Admin","Admin@20"},{"bothcorrect","Admin","admin123"}};
-		  
-		return data;
-	   	      
-	  }
+//	 @DataProvider(name="dataset")
+//	  public String[][] data() {
+//		 String[][] data= {{"bothwrong","adm","admin"},{"wrongpass","Admin","Admin@20"},{"bothcorrect","Admin","admin123"}};
+//		  
+//		return data;
+//	   	      
+//	  }
 	 
-  @Test(dataProvider = "dataset")
-  public void verifyUserCanLogin(String scenario,String user,String password) throws IOException {
+  
+  
+// public void verifyUserCanLogin(String scenario,String user,String password) throws IOException { 
+//	  lp.enterUsername(user);
+//	  lp.enterPassword(password);
+  @Test
+	 public void verifyUserCanLogin(String user) throws IOException {
 	  lp.enterUsername(user);
-	  
-	  lp.enterPassword(password);
+  }
+  @Test
+  public void verifyUserpas(String password) throws IOException {
+  	  lp.enterPassword(password);
+  }
+  @Test
+  public void sub() throws IOException {
 	  lp.ClickonSubmit();
-	  lp.verifyLoginwithInvalidCredentials(scenario);
+	 // lp.verifyLoginwithInvalidCredentials(scenario);
 	  UtilClass.getScreenshot(driver,"login");
+	  
   }
  
 
   @AfterMethod
   public void afterMethod(ITestResult result) {
-	  if(result.getStatus()==ITestResult.SUCCESS) {
-		  test.log(Status.PASS, "VerifyLoginFunctionality");
+	  if(result.getStatus()==ITestResult.FAILURE) {
+		  test.log(Status.FAIL, "VerifyLoginFunctionality");
 		  
+	  }
+	  else {
+		  test.log(Status.PASS,"Unsuccessfully");
 	  }
   
   }
