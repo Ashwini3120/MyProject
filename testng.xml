@@ -17,8 +17,23 @@
   <test name="ChromeTest">
 	<parameter name="browser" value="chrome"></parameter>
 	<classes>
-		<class name="test.TestClassTest"></class>
+		<class name="test.TestClassTest">
+			<methods>
+				<include name="verifyUserCanLogin"></include>
+			</methods>
+		</class>
 	</classes>
+	
   
   </test> <!-- Test -->
+  <test name="EdgeTest">
+	<parameter name="browser" value="edge"></parameter>
+	<classes>
+		<class name="test.TestClassTest">
+			<methods>
+				<include name="verifyUserCanLogin"></include>
+			</methods>
+		</class>
+	</classes>
+  </test>
 </suite> <!-- Suite -->

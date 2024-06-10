@@ -36,44 +36,43 @@ public class LoginPage extends UtilClass{
 	
 	public void enterUsername(String user) throws IOException {
 		explicitWait(driver,username);
-		username.sendKeys(getUserDataFromExcel(user));
+		username.sendKeys(user);
 		
 	}
 	public void enterPassword(String pass) throws IOException {
-		paswrd.sendKeys(getPasswordFromExcel(pass));
+		paswrd.sendKeys(pass);
 		
 	}
-	
 
 	public void ClickonSubmit() throws IOException {
 		submit.click();
 		
 	}
-//	public void verifyLoginwithInvalidCredentials(String scenario) {
-//		
-//		 if(scenario.equals("bothwrong")) {
-//			 explicitWait(driver,invalid);
-//			 String txt=invalid.getText();
-//			Assert.assertEquals(txt, "Invalid credentials");
-//			 //Assert.assertTrue(invalid.isDisplayed(),"Log in not successfull");
-//			  System.out.println("Login not Successfull");
-//			  }
-//		
-//		else if(scenario.equals("wrongpass")) {
-//			explicitWait(driver,invalid);
-//			String txt=invalid.getText();
-//			Assert.assertEquals(txt, "Invalid credentials");
-//			 //Assert.assertTrue(invalid.isDisplayed(),"Log in not successfull");
-//			  System.out.println("Login not Successfull");
-//			 
-//			  }
-//		 if(scenario.equals("bothcorrect")) {
-//			explicitWait(driver,account);
-//			  Assert.assertTrue(account.isDisplayed());
-//			  System.out.println("Login Successfull");
-//			 
-//			  }
-//		}
+	public void verifyLoginwithInvalidCredentials(String scenario) {
+		
+		 if(scenario.equals("bothwrong")) {
+			 explicitWait(driver,invalid);
+			 String txt=invalid.getText();
+			Assert.assertEquals(txt, "Invalid credentials");
+			 //Assert.assertTrue(invalid.isDisplayed(),"Log in not successfull");
+			  System.out.println("Login not Successfull");
+			  }
+		
+		else if(scenario.equals("wrongpass")) {
+			explicitWait(driver,invalid);
+			String txt=invalid.getText();
+			Assert.assertEquals(txt, "Invalid credentials");
+			 //Assert.assertTrue(invalid.isDisplayed(),"Log in not successfull");
+			  System.out.println("Login not Successfull");
+			 
+			  }
+		 if(scenario.equals("bothcorrect")) {
+			explicitWait(driver,account);
+			  Assert.assertTrue(account.isDisplayed());
+			  System.out.println("Login Successfull");
+			 
+			  }
+		}
 		
 	
 

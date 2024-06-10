@@ -50,34 +50,37 @@ public class TestClassTest {
 	 
 	 }
 	 
-//	 @DataProvider(name="dataset")
-//	  public String[][] data() {
-//		 String[][] data= {{"bothwrong","adm","admin"},{"wrongpass","Admin","Admin@20"},{"bothcorrect","Admin","admin123"}};
-//		  
-//		return data;
-//	   	      
-//	  }
-	 
-  
-  
-// public void verifyUserCanLogin(String scenario,String user,String password) throws IOException { 
-//	  lp.enterUsername(user);
-//	  lp.enterPassword(password);
-  @Test
-	 public void verifyUserCanLogin(String user) throws IOException {
+	 @DataProvider(name="dataset")
+	 @Test
+	  public String[][] data() {
+		 String[][] data= {{"bothwrong","adm","admin"},{"wrongpass","Admin","Admin@20"},{"bothcorrect","Admin","admin123"}};
+		  
+		return data;
+	   	      
+	  }
+	   
+ @Test(dataProvider="dataset")
+ public void verifyUserCanLogin(String scenario,String user,String password) throws IOException { 
 	  lp.enterUsername(user);
-  }
-  @Test
-  public void verifyUserpas(String password) throws IOException {
-  	  lp.enterPassword(password);
-  }
-  @Test
-  public void sub() throws IOException {
+	  lp.enterPassword(password);
 	  lp.ClickonSubmit();
-	 // lp.verifyLoginwithInvalidCredentials(scenario);
-	  UtilClass.getScreenshot(driver,"login");
-	  
-  }
+	 lp.verifyLoginwithInvalidCredentials(scenario);
+ }
+//  @Test
+//	 public void verifyUserCanLogin(String user) throws IOException {
+//	  lp.enterUsername(user);
+//  }
+//  @Test
+//  public void verifyUserpassword(String password) throws IOException {
+//  	  lp.enterPassword(password);
+//  }
+//  @Test
+//  public void submit() throws IOException {
+//	  lp.ClickonSubmit();
+//	 // lp.verifyLoginwithInvalidCredentials(scenario);
+//	  UtilClass.getScreenshot(driver,"login");
+//	  
+//  }
  
 
   @AfterMethod
